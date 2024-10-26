@@ -12,6 +12,22 @@ T Fibonacci(T num){
     }
     return Fibonacci(num-1) + Fibonacci(num-2);
 }
+#include <vector>
+
+template <typename T>
+T fibonacciD(T n) {
+    std::vector<T> fib(n + 1);  
+
+    fib[0] = 0;
+    fib[1] = 1;
+
+    for (T i = 2; i <= n; i++) {
+        fib[i] = fib[i - 1] + fib[i - 2];
+    }
+
+    return fib[n];
+}
+
 
 void Menu(){
     cout<<"Welcome to Fibonacci Series\n"
@@ -75,7 +91,12 @@ int ChoiceFunction() {
                     cin >> choice;
                     switch (choice) {
                         case 1:
-                            cout << "Not added yet, See You Later ^_^\n";
+                            cout << "You are now testing Fibonacci function using dynamic programming.\n";
+                            int n;
+                            cout << "Please enter a number: ";
+                            cin >> n;
+                            cout << "Fibonacci of number " << n << " = " << FibonacciD(n) << "\n";
+                            cout<<"-------------------------------------------\n";
                             break;
                         case 2:
                             break;
